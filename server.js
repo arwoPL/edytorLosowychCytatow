@@ -34,6 +34,19 @@ const server = http.createServer( async function(req, res) {
         }
 
         res.end(JSON.stringify(quote));
+    } else if (req.url.match(/\/api\/quotes\/([0-9a-z]+)/)) {
+        const id = req.url.split("/")[3];
+
+        let quote = await getQuote(id);
+        if(quote) {
+            res.writeHead(200, API_CONTENT_TYPE);
+        } else {
+            res.writeHead(404, API_CONTENT_TYPE);
+            quote = { message : "Can't find quote"};
+        }
+
+        res.end(JSON.stringify(quote));
+
     }
     
     else {
