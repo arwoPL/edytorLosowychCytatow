@@ -1,0 +1,24 @@
+{
+  "name": "edytorcytatow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arwoPL/edytorLosowychCytatow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arwoPL/edytorLosowychCytatow/issues"
+  },
+  "homepage": "https://github.com/arwoPL/edytorLosowychCytatow#readme",
+  "dependencies": {
+    "mongodb": "^6.17.0"
+  }
+}
