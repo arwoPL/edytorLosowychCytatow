@@ -1,6 +1,6 @@
-const MongoSingleton = require("../data/mongoDbSingleton");
-const ObjectId = require("mongodb").ObjectId;
 
+const MongoSingleton = require("../data/mongoDbSingleton"); 
+const ObjectId = require("mongodb").ObjectId; 
 
 function saveAll(quotes) {
     return new Promise( async (resolve, reject) => {
@@ -10,40 +10,44 @@ function saveAll(quotes) {
         if (result.insertedCount) {
             resolve(result);
         } else {
-            reject ("Couldn't save quotes.");
+            reject("Couldn't save quotes.");
         }
-    });
+    } );
 }
 
 function getAll() {
-    return new Promise( async (resolve,reject) => {
-        const collection = await MongoSingleton.getCollection();
+    return new Promise( async (resolve, reject) => {
+        const collection = await MongoSingleton.getCollection();  
         const cursor = collection.find();
-        const results = await cursor.toArray();
+        const results = await cursor.toArray(); 
 
         if (results.length > 0) {
             resolve(results);
         } else {
-            reject("Can't get all quotes");
+            reject("Can't get all quotes.");
         }
     } );
 }
+
 
 function getById(id) {
     return new Promise( async (resolve, reject) => {
         const collection = await MongoSingleton.getCollection();
-        const result = await collection.findOne({_id: ObjectId(id)});
-
+        const result = await collection.findOne({_id: new ObjectId(id)});
+        
         if (result) {
             resolve(result);
         } else {
-            reject("Can't get quote by id: ", id );
+            reject("Can't get quote by id: " + id);
         }
     } );
-}
+} 
+
 
 module.exports = {
-    getById,
     getAll,
+    getById,
     saveAll
 };
+
+
