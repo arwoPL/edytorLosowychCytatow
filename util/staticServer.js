@@ -14,14 +14,14 @@ const mimeTypes = {
 function serveStaticFile(req, res) {
     const baseURL = req.protocol + "://" + req.headers.host + "/";
     const parsedURL = new URL(req.url, baseURL)
-    console.log(parsedURL);
+    //console.log(parsedURL);
     
     let pathSanitize = path.normalize(parsedURL.pathname);
-    console.log("pathSanitize: " + pathSanitize);
-    console.log("__DDIRNAME: " + __dirname);
+    //console.log("pathSanitize: " + pathSanitize);
+    //console.log("__DDIRNAME: " + __dirname);
     
     let pathname = path.join(__dirname, "..", "static", pathSanitize);
-    console.log("pathname: " + pathname);
+    //console.log("pathname: " + pathname);
     
     if (fs.existsSync(pathname)) {
         if (fs.statSync(pathname).isDirectory()) {
