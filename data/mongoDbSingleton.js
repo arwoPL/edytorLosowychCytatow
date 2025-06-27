@@ -2,7 +2,7 @@ const mongo = require("mongodb");
 const MongoClient = mongo.MongoClient;
 
 module.exports = (function () {
-    const url = "mongodb://localhost:27017";
+    const url = "mongodb://127.0.0.1:27017";
     let client;
     let db;
     let collection;
